@@ -4,8 +4,8 @@
 browser = ["Chrome"]
 # Enter your Linkedin password and username below. Do not commit this file after entering these credentials.
 # Linkedin credentials
-email = "YourLinkedin@UserEmail.com"
-password = "YourLinkedinPassword"
+email = "kowsikperumalla@gmail.com"
+password = "PCLsmk@1611252"
 
 #PRO FEATURE - Optional! run browser in headless mode, no browser screen will be shown it will work in background.
 headless = False
@@ -14,6 +14,8 @@ headless = False
 firefoxProfileRootDir = r""
 # get Chrome profile path by typing following url: chrome://version/
 chromeProfilePath = r""
+
+
 
 # These settings are for running Linkedin job apply bot.
 # location you want to search the jobs - ex : ["Poland", "Singapore", "New York City Metropolitan Area", "Monroe County"]
@@ -30,7 +32,7 @@ jobType = ["Full-time", "Part-time" , "Contract"]
 #remote  - ex: ["On-site" , "Remote" , "Hybrid"]
 remote = ["On-site" , "Remote" , "Hybrid"]
 #salary - ex:["$40,000+", "$60,000+", "$80,000+", "$100,000+", "$120,000+", "$140,000+", "$160,000+", "$180,000+", "$200,000+" ] - select only one
-salary = [ "$80,000+"]
+salary = [ "$80,00+"]
 #sort - ex:["Recent"] or ["Relevent"] - select only one
 sort = ["Recent"]
 #Blacklist companies you dont want to apply - ex: ["Apple","Google"]
@@ -112,14 +114,19 @@ GlobalLogicRemoteWork = ["yes"]
 # Optional! Keyword:["javascript", "react", "angular", ""]
 GlobalLogicKeyword = ["react"]
 # Global Logic Job apply settinngs
-FirstName = "O"
-LastName = "D"
-Email = "asdsa@gmail.com"
-LinkedInProfileURL = "www.google.com"
-Phone = "" #OPTIONAL
-Location = "" #OPTIONAL
+FirstName = "Chinni Krishna Kowsik"
+LastName = "Permalla"
+Email = "kowsikperumalla@gmail.com"
+LinkedInProfileURL = "https://www.linkedin.com/in/kowsikperumalla/"
+Phone = "9000021892" #OPTIONAL
+Location = "Guntur, Andhra Pradesh" #OPTIONAL
 HowDidYouHeard = "" #OPTIONAL
 ConsiderMeForFutureOffers = True #true = yes, false = no
 
  # Testing & Debugging features
 displayWarnings = False
+defaultRadioOption = 1         # 1 = first radio (“Yes”), 2 = second (“No”)
+answerAllCheckboxes = "yes"    # or "no" if you’d rather decline
+
+useAiAutocomplete = True
+headless = True   # optional

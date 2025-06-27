@@ -3,28 +3,35 @@ from typing import List
 
 from selenium import webdriver
 
+
 def chromeBrowserOptions():
     options = webdriver.ChromeOptions()
-    options.add_argument('--no-sandbox')
+    # Core stability flags
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--ignore-certificate-errors")
     options.add_argument("--disable-extensions")
-    options.add_argument('--disable-gpu')
-    options.add_argument('--disable-dev-shm-usage')
-    if(config.headless):
-        options.add_argument("--headless")
+    options.add_argument("--log-level=3")             # quiet logs
     options.add_argument("--start-maximized")
-    options.add_argument("--disable-blink-features")
     options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_experimental_option('useAutomationExtension', False)
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    if(len(config.chromeProfilePath)>0):
-        initialPath = config.chromeProfilePath[0:config.chromeProfilePath.rfind("/")]
-        profileDir = config.chromeProfilePath[config.chromeProfilePath.rfind("/")+1:]
-        options.add_argument('--user-data-dir=' +initialPath)
-        options.add_argument("--profile-directory=" +profileDir)
+    options.add_experimental_option('useAutomationExtension', False)
+
+    # Headless only if *explicitly* requested
+    if config.headless:
+        options.add_argument("--headless=new")        # Chrome ≥109
+
+    # Re-use your Chrome profile if you set one
+    if config.chromeProfilePath:
+        root, profile = config.chromeProfilePath.rsplit("/", 1)
+        options.add_argument(f'--user-data-dir={root}')
+        options.add_argument(f'--profile-directory={profile}')
     else:
         options.add_argument("--incognito")
+
     return options
+
 
 def prRed(prt):
     print(f"\033[91m{prt}\033[00m")
